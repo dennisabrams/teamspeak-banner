@@ -50,7 +50,7 @@ There are some great TeamSpeak 3 Banner Generators on GitHub, however I didn't f
 My goal was to create a TeamSpeak 3 Banner with some important features:
 
 <ul>
-  <li><b>Fully Customization</b></li>
+  <li><b>Full Customization</b></li>
   <li><b>Great Design</b></li>
   <li><b>Client sided information</b> <br /><br />
    <table>
