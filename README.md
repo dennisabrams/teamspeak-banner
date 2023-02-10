@@ -136,6 +136,22 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    
 > The minimum Gfx Interval from TeamSpeak 3 is 60. Sadly it's not 100% accurate so the time on the banner will be not perfectly synced with the minutes.
 
+## Configuration
+
+![ts3-demo](https://user-images.githubusercontent.com/122950707/218219605-79f7879d-a48a-4e16-a41a-88ef030009cb.png)
+
+The TeamSpeak 3 Banner will look like this if there are no changes inside the `config.php` file.
+* If you don't have any logo, the name of your server will be shown instead.
+* Changing the font style & size of the text is possible.
+* Positioning of the text is customizable.
+* Background can be switched. 3:1 aspect ratio is recommended but not necessary.
+* Displaying the server version can be enabled / disabled.
+* Locale information for the time and date can be modified.
+* Text is editable for translations.
+
+## Demo
+
+You can [join the TeamSpeak Sever](https://projekt-eleven.eu/eleven/redirects/ts3Redirect.php) of my german gaming community [Projekt-Eleven](https://projekt-eleven.eu/) to see the TeamSpeak 3 Banner in action.
 <!-- LICENSE -->
 ## License
 
