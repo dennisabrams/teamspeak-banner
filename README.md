@@ -13,7 +13,7 @@
     A fully customisable TeamSpeak 3 🔊 banner with server & client information.
     <br />
     <br />
-    <a href="https://projekt-eleven.eu/live-banner/ts3-banner.php">View Demo</a>
+    <a href="#demo">View Demo</a>
     ·
     <a href="https://github.com/dennisabrams/teamspeak3-banner/issues">Report Bug</a>
     ·
@@ -36,6 +36,7 @@
         <li><a href="#installation">Installation</a></li>
         <li><a href="#add-banner">Add Banner</a></li>
     </ul>
+    <li><a href="#demo">Demo</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -129,7 +130,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    ```
    Banner Gfx URL: http://.../ts3-banner/ts3-banner.php
    ```
-5. Change the Gfx Interval to 60 so the Banner will be reloaded every 60 seconds
+5. Change the Gfx Interval to 60 so the Banner will be reloaded every 60 seconds.
    ```
    Gfx Interval: 60
    ```
