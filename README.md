@@ -130,7 +130,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    ```
    Banner Gfx URL: http://.../ts3-banner/ts3-banner.php
    ```
-5. Change the Gfx Interval to 60 so the Banner will be reloaded every 60 seconds.
+5. Change the Gfx Interval to 60 so the Banner will reload every minute.
    ```
    Gfx Interval: 60
    ```
