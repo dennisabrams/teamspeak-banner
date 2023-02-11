@@ -141,7 +141,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
 
 ![ts3-demo](https://user-images.githubusercontent.com/122950707/218219605-79f7879d-a48a-4e16-a41a-88ef030009cb.png)
 
-The TeamSpeak 3 Banner will look like this if there are no changes inside the `config.php` file.
+The TeamSpeak 3 Banner will look similar to this if there are no changes inside the `config.php` file.
 * If you don't have any logo, the name of your server will be shown instead.
 * Changing the font style & size of the text is possible.
 * Positioning of the text is customizable.
