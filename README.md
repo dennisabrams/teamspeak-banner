@@ -8,9 +8,12 @@
   </a>
 
   <h3 align="center">TeamSpeak 3 Banner</h3>
+  <p align="center">
+    <!-- Empty for open graph-->
+  </p>
 
   <p align="center">
-    Fully customisable TeamSpeak 3 🔊 banner with server & client information.
+    A fully customisable TeamSpeak 3 🔊 banner with server & client information.
     <br />
     <br />
     <a href="#demo">View Demo</a>
