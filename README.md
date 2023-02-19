@@ -145,7 +145,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
 
 The TeamSpeak 3 Banner will look similar to this if there are no changes inside the `config.php` file.
 * If you don't have any logo, the name of your server will be shown instead.
-* Changing the font style, size & color of the text is possible.
+* Changing the font style, size, rotation & color of the text is possible.
 * Positioning of the text is customizable.
 * Background can be switched. 3:1 aspect ratio is recommended but not necessary.
 * Displaying the server version can be enabled / disabled.
