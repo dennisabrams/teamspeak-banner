@@ -148,10 +148,12 @@ The TeamSpeak 3 Banner will look similar to this if there are no changes inside 
 * If you don't have any logo, the name of your server will be shown instead.
 * Changing the font style, size, rotation & color of the text is possible.
 * Positioning of the text is customizable.
-* Background can be switched. 3:1 aspect ratio is recommended but not necessary.
+* Background can be switched.
 * Displaying the server version can be enabled / disabled.
 * Locale information for the time and date can be modified.
 * Text is editable for translations.
+
+> An 3:1 aspect ratio is recommended for the background image but not necessary. 🖼️
 
 ## Demo
 
