@@ -116,9 +116,9 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    ```php
    $serverquery_username = "serveradmin";
    $serverquery_password = "PASSWORD";
-   $server_ip = '127.0.0.1';
-   $serverquery_port = '10011';
-   $server_port = '9987';
+   $server_ip = "127.0.0.1";
+   $serverquery_port = "10011";
+   $server_port = "9987";
    ```
 
 ### Add Banner
