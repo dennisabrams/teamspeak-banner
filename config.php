@@ -33,8 +33,8 @@ $font = "fonts/ReadexPro.ttf"; // Font style Path
 $text_large = 150; // Size of the current time
 $text_normal = 50; // Size of the headlines
 $text_small = 40; // Size of informations
-$text_color1 = 255, 255, 255 // Custom text color RGB
-$text_color2 = 105, 108, 124 // Custom text color RGB
+$text_color1 = 255, 255, 255; // Custom text color RGB
+$text_color2 = 105, 108, 124; // Custom text color RGB
 
 // Logo Image (If  there is no Logo it will just show the name of the server)
 $logo = ""; // Logo Image Path
@@ -47,7 +47,7 @@ $spl = "36"; // Distance left (0 - 100)
 $spt = "53"; // Distance top (0 - 100)
 
 // Info Text
-$info = "" // Custom Text
+$info = ""; // Custom Text
 $its = ""; // Info text size
 $itr = ""; // Info text rotation (0 - 360)
 $ipl = ""; // Distance left (0 - 100)
