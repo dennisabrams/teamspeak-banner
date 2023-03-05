@@ -123,7 +123,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    $server_port = "9987";
    ```
 
-> Serverquery username & password will be automatically encoded to [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt), so [this](https://github.com/dennisabrams/teamspeak3-banner/issues/1) issue will be not appear in the future.
+> **Note**: Serverquery username & password will be automatically encoded to [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt), so [this](https://github.com/dennisabrams/teamspeak3-banner/issues/1) issue will be not appear in the future. 🔒
 
 ### Add Banner
  
@@ -141,7 +141,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    Gfx Interval: 60
    ```
 
-> The minimum Gfx Interval of TeamSpeak 3 is 60 seconds. Sadly it's not 100% accurate so the time on the banner will be not perfectly synced with the minutes. ⏳
+> **Warning**: The minimum Gfx Interval of TeamSpeak 3 is 60 seconds. Sadly it's not 100% accurate so the time on the banner will be not perfectly synced with the minutes. ⏳
 
 ## Configuration
 
@@ -158,6 +158,7 @@ The TeamSpeak 3 Banner will look similar to this if there are no changes inside 
 * Locale information for the time and date can be modified.
 * Text is editable for translations.
 
+> **Note**
 > An 3:1 aspect ratio is recommended for the background image but not necessary. 🖼️
 
 ## Demo
