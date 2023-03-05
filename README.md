@@ -158,8 +158,7 @@ The TeamSpeak 3 Banner will look similar to this if there are no changes inside 
 * Locale information for the time and date can be modified.
 * Text is editable for translations.
 
-> **Note**
-> An 3:1 aspect ratio is recommended for the background image but not necessary. 🖼️
+> **Note**: An 3:1 aspect ratio is recommended for the background image but not necessary. 🖼️
 
 ## Demo
 
