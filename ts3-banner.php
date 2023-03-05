@@ -47,7 +47,7 @@ try {
 
 catch (Exception $e) {
 	// If Serverquery connection failed
-	die('<pre><b>Error Code: '.$e .'</pre>');
+	die('<pre><b>Error Code: '.$e->getCode() .'</b> ' .$e->getMessage().'</pre>');
 }
 
 // Convertion
