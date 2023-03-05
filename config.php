@@ -19,7 +19,7 @@ $serverquery_port = "10011"; // Default serverquery_port: "10011"
 $server_port = "9987"; // Default server_port: "9987"
 
 // TS3 Bots
-$ts3_bots = 1; // Amount of Bots on the TS3 server
+$ts3_bots = 0; // Amount of Bots on the TS3 server
 
 // Locale information
 date_default_timezone_set("Europe/Berlin"); // Locale date information
