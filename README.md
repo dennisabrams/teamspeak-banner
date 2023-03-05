@@ -52,6 +52,7 @@ My goal was to create a TeamSpeak 3 Banner with some important features:
 <ul>
   <li><b>Full Customization</b></li>
   <li><b>Great Design</b></li>
+  <li><b>Translation</b></li>
   <li><b>Client sided information</b>
     <br /><br />
     <table>
@@ -72,13 +73,14 @@ My goal was to create a TeamSpeak 3 Banner with some important features:
         <td>Name</td>
         <td>Logo</td>
         <td>Version</td>
-        <td>Info text</td>
+        <td>Custom text</td>
         <td>Time</td>
         <td>Date</td>
         <td>Active Clients</td>
         <td>Total Clients</td>
         <td>Channels</td>
         <td>Uptime</td>
+        <td>Group Icons</td>
       </tr>
     </table>
   </li>
@@ -106,12 +108,12 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    ```sh
    git clone https://github.com/dennisabrams/teamspeak3-banner.git ts3-banner
    ```
-2. Add the path of your TeamSpeak 3 PHP Framework to the `config.php`.
+2. Add the path of your TeamSpeak 3 PHP Framework to the [`config.php`](https://github.com/dennisabrams/teamspeak3-banner/blob/main/config.php).
 
    ```php
    $ts3_libary = "PATH";
    ```
-3. Modify your serverquery inside the `config.php`.
+3. Modify your serverquery inside the [`config.php`](https://github.com/dennisabrams/teamspeak3-banner/blob/main/config.php).
 
    ```php
    $serverquery_username = "serveradmin";
@@ -120,6 +122,8 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
    $serverquery_port = "10011";
    $server_port = "9987";
    ```
+
+> Serverquery username & password will be automatically encoded to [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt), so [this](https://github.com/dennisabrams/teamspeak3-banner/issues/1) issue will be not appear in the future.
 
 ### Add Banner
  
@@ -143,13 +147,14 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
 
 ![ts3-demo](https://user-images.githubusercontent.com/122950707/218219605-79f7879d-a48a-4e16-a41a-88ef030009cb.png)
 
-The TeamSpeak 3 Banner will look similar to this if there are no changes inside the `config.php` file.
-* Logo Image & Custom info text can be added.
+The TeamSpeak 3 Banner will look similar to this if there are no changes inside the [`config.php`](https://github.com/dennisabrams/teamspeak3-banner/blob/main/config.php) file.
+* Logo Image & Custom text can be added.
 * If you don't have any logo, the name of your server will be shown instead.
 * Changing the font style, size, rotation & color of the text is possible.
 * Positioning of the text is customizable.
 * Background can be switched.
-* Displaying the server version can be enabled / disabled.
+* Displaying the server version or group icons can be enabled / disabled.
+* Choose a maximum amount of rendered server group icons.
 * Locale information for the time and date can be modified.
 * Text is editable for translations.
 
