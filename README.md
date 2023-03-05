@@ -15,7 +15,7 @@
     ·
     <a href="https://github.com/dennisabrams/teamspeak3-banner/issues">Report Bug</a>
     ·
-    <a href="https://github.com/dennisabrams/teamspeak3-banner/discussions/categories/ideas">Request Feature</a>
+    <a href="https://github.com/dennisabrams/teamspeak3-banner/issues">Request Feature</a>
   </p>
 </div>
 
