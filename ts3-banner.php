@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * ts3-banner.php
+ *
+ * Author: Dennis Abrams
+ * Repository: https://github.com/dennisabrams/teamspeak3-banner
+ *
+ */
+
 require_once('config.php');
 require_once($ts3_libary); // Load TS3 PHP framework files
 
@@ -7,8 +15,9 @@ $connected = FALSE;
 
 // Serverquery connection
 try {
-
-	$ts3= TeamSpeak3::factory("serverquery://$serverquery_username:$serverquery_password@$server_ip:$serverquery_port/?server_port=$server_port");
+	// Connect to the server, authenticate and spawn an object for the virtual server on the specific port
+	// Encode username and password to RFC 3986 if there are any special characters inside
+	$ts3 = TeamSpeak3::factory("serverquery://" .rawurlencode($serverquery_username) .":" .rawurlencode($serverquery_password) ."@$server_ip:$serverquery_port/?server_port=$server_port");
 
 	// Get server Info
 	$server_name = $ts3->virtualserver_name;
@@ -38,62 +47,90 @@ try {
 
 catch (Exception $e) {
 	// If Serverquery connection failed
-	die('<pre><b>Error Code: '.$e->getCode() .'</b> ' .$e->getMessage().'</pre>');
+	die('<pre><b>Error Code: '.$e .'</pre>');
 }
 
 // Convertion
 $connected_hours = floor($connected_time / 60);
 $connected_min = $connected_time - ($connected_hours * 60);
 $server_uptime = str_replace("D", "d", $server_uptime);
-$server_uptime = substr($server_uptime, 0, -3); // Remove seconds
+$server_uptime = substr($server_uptime, 0, -3);
 $server_uptime = str_replace(":", "h ", $server_uptime) ."min";
 $server_group = array_map('intval', explode(',', $server_group));
 
 // Image generation
-$banner = imagecreatefrompng($background);
+$banner = imagecreatefromstring(file_get_contents($background));
 list($width, $height) = getimagesize($background);
 $w = $width / 100;
 $h = $height / 100;
-$white = imagecolorallocate($banner, 255, 255, 255);
-$gray = imagecolorallocate($banner, 105, 108, 124);
+$color1 = imagecolorallocate($banner, $text_color1["R"], $text_color1["G"], $text_color1["B"]);
+$color2 = imagecolorallocate($banner, $text_color2["R"], $text_color2["G"], $text_color2["B"]);
 $flag = imagecreatefrompng("flags/" .$country .".png");
 
 // Image drawing
-imageline($banner, $w*78, $h*50, $w*96, $h*50, $white);
-imageline($banner, $w*0, $h*88, $w*100, $h*88, $gray);
-imageline($banner, $w*89, 0, $width, $h*23, $gray);
-imagettftext($banner, $sts, 0, $w*$spl, $h*$spt, $white, $font, $server_name); // Server name
-imagettftext($banner, 130, 0, $w*80, $h*45, $white, $font, date('H:i')); // Time
-imagettftext($banner, 40, 0, $w*82.5, $h*60, $white, $font, strftime("%x")); // Date
+imageline($banner, $w*78, $h*50, $w*96, $h*50, $color1);
+imageline($banner, $w*0, $h*88, $w*100, $h*88, $color2);
+
+imagettftext($banner, $its, $itr, $w*$ipl, $h*$ipt, $color1, $font, $custom);
+imagettftext($banner, $text_large, 0, $w*80, $h*45, $color1, $font, date('H:i')); // Time
+imagettftext($banner, $text_small, 0, $w*82.5, $h*60, $color1, $font, strftime("%x")); // Date
+if (empty($logo)) {
+	imagettftext($banner, $sts, 0, $w*$spl, $h*$spt, $color1, $font, $server_name);
+}
+else {
+	$logoimg = imagecreatefromstring(file_get_contents($logo));
+	list($logo_width, $logo_height) = getimagesize($logo);
+	$logoimg = imagescale($logoimg, $logo_width / 100 * $logo_size, $logo_height / 100 * $logo_size, IMG_BICUBIC);
+	imagecopymerge($banner, $logoimg, $w*$lpl, $h*$lpt, 0, 0, $logo_width / 100 * $logo_size, $logo_height / 100 * $logo_size, $logo_transparency);
+}
 
 // Draw client info
 if ($connected) {
-	imagettftext($banner, 50, 0, $w*2, $h*15, $gray, $font, "Bandbreite letzte Minute");
-	imagettftext($banner, 40, 0, $w*2, $h*25, $gray, $font, "Upload (Bytes/s): " .$upload);
-	imagettftext($banner, 40, 0, $w*2, $h*31, $gray, $font, "Download (Bytes/s): " .$download);
-	imagettftext($banner, 50, 0, $w*2, $h*50, $gray, $font, "Verbindungsinformationen");
-	imagettftext($banner, 40, 0, $w*2, $h*60, $gray, $font, "Nickname: " .$client);
+	imagettftext($banner, $text_normal, 0, $w*2, $h*15, $color2, $font, $t1); // Headline 1
+	imagettftext($banner, $text_small, 0, $w*2, $h*25, $color2, $font, $t3 .": " .$upload);
+	imagettftext($banner, $text_small, 0, $w*2, $h*31, $color2, $font, $t4 .": " .$download);
+	imagettftext($banner, $text_normal, 0, $w*2, $h*50, $color2, $font, $t2); // Headline 2
+	imagettftext($banner, $text_small, 0, $w*2, $h*60, $color2, $font, $t5 .": " .$client);
 	if ($connected_hours >= 1) {
-		imagettftext($banner, 40, 0, $w*2, $h*66, $gray, $font, "Verbunden seit: " .$connected_hours." h, " .$connected_min ." min.");
+		imagettftext($banner, $text_small, 0, $w*2, $h*66, $color2, $font, $t6 .": " .$connected_hours." h, " .$connected_min ." min.");
 	}
 	else {
-		imagettftext($banner, 40, 0, $w*2, $h*66, $gray, $font, "Verbunden seit: " .$connected_min ." min.");
+		imagettftext($banner, $text_small, 0, $w*2, $h*66, $color2, $font, $t6 .": " .$connected_min ." min.");
 	}
-	imagettftext($banner, 40, 0, $w*2, $h*72, $gray, $font, "Totale Verbindungen: " .$total_connections);
-	$flag = imagescale($flag, 90, 60, IMG_BICUBIC); // Bildgröße ändern
-	imagecopymerge($banner, $flag, $w*2, $h*76, 0, 0, 90, 60 , 100); // Bild in Bild einfügen
+	imagettftext($banner, $text_small, 0, $w*2, $h*72, $color2, $font, $t7 .": " .$total_connections);
+	$flag = imagescale($flag, 90, 60, IMG_BICUBIC); // Flag
+	imagecopymerge($banner, $flag, $w*85.3, $h*70, 0, 0, 90, 60 , 100);
+	if (!empty($groups)) {
+		imagettftext($banner, $text_small, 0, $w*2, $h*78, $color2, $font, $t8 .": "); // Server Groups
+		for ($i = 0, $x_groups = $w*$gpl; $i < $max_groups; $i++, $x_groups += 65) {
+			$group = imagecreatefrompng("server_groups/icons/".$server_group[$i].".png");
+			$group = imagescale($group, 60, 60, IMG_BICUBIC);
+			$bg_image = imagecreatetruecolor(60, 60);
+			$bg_color = imagecolorallocate($bg_image, 0, 0, 0);
+			imagefill($bg_image, 0, 0, $bg_color);
+			imagecopy($bg_image, $group, 0, 0, 0, 0, 60, 60);
+			imagecolortransparent($bg_image, $bg_color);
+			imagecopymerge($banner,$bg_image, $x_groups, $h*73.5, 0, 0, 60, 60 , 100);
+		}
+		if (sizeof($server_group) > $max_groups) {
+			imagettftext($banner, $text_small, 0, $x_groups + 10, $h*78, $color2, $font, "...");
+		}
+	}
 }
 
 // Draw server info
-imagettftext($banner, 30, -38, $w*95, $h*4, $gray, $font, "Server");
-imagettftext($banner, 30, -37, $w*94, $h*7, $gray, $font, "v. " .$server_version);
-imagettftext($banner, 45, 0, $w*2, $h*96, $white, $font, "Clients: " .$total_clients .' / ' .$max_clients);
-imagettftext($banner, 45, 0, $w*45, $h*96, $white, $font, "Channels: " .$total_channels);
-imagettftext($banner, 45, 0, $w*76, $h*96, $white, $font, "Uptime: " .$server_uptime);
+if (!empty($version)) {
+	imagettftext($banner, 30, -38, $w*95, $h*4, $color2, $font, "Server");
+	imagettftext($banner, 30, -37, $w*94, $h*7, $color2, $font, "v. " .$server_version);
+	imagettftext($banner, 45, 0, $w*2, $h*96, $color1, $font, $t9 .": " .$total_clients .' / ' .$max_clients);
+	imagettftext($banner, 45, 0, $w*45, $h*96, $color1, $font, $t10 .": " .$total_channels);
+	imagettftext($banner, 45, 0, $w*76, $h*96, $color1, $font, $t11 .": " .$server_uptime);
+	imageline($banner, $w*89, 0, $width, $h*23, $color2);
+}
 
 // Returns the image in the browser
 header('Content-type: image/png');
 imagepng($banner);
-imagedestroy($banner, $flag, $festtag, $backgroundImg, $rolle);
+imagedestroy($banner, $flag, $bg_image, $group);
 
 ?>
