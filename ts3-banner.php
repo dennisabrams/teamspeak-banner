@@ -70,7 +70,6 @@ $flag = imagecreatefrompng("flags/" .$country .".png");
 // Image drawing
 imageline($banner, $w*78, $h*50, $w*96, $h*50, $color1);
 imageline($banner, $w*0, $h*88, $w*100, $h*88, $color2);
-
 imagettftext($banner, $its, $itr, $w*$ipl, $h*$ipt, $color1, $font, $custom);
 imagettftext($banner, $text_large, 0, $w*80, $h*45, $color1, $font, date('H:i')); // Time
 imagettftext($banner, $text_small, 0, $w*82.5, $h*60, $color1, $font, strftime("%x")); // Date
