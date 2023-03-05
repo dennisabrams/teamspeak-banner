@@ -1,6 +1,6 @@
 # Server Group Icons
 
-Server group icons are disabled by default inside the `config.php`.
+Server group icons are disabled by default inside the [`config.php`][config].
 ```php
 $groups = 0; // 1 = Enabled, 0 = Disabled
 ```
@@ -12,3 +12,5 @@ Put your icons inside this folder and rename them by their **Group ID** number a
 ## Server Group Icon ID's
 
 Connect to your Teamspeak 3 Server and press <kbd>Ctrl</kbd> + <kbd>F1</kbd> to see all group icons on your server. Hover over the icons to reveal their permanent group ID.
+
+[config]: https://github.com/dennisabrams/teamspeak3-banner/blob/main/config.php
