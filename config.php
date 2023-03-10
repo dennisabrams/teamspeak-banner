@@ -61,7 +61,7 @@ $gpl = 9; // Distance left (0 - 100)
 $bad_groups = array(); // Icon ID's you don't want to show e.g. if they are invisible: array(ID, ID, ...)
 
 // Translation
-$t1 = "Bandwith (last min.)"; // "Bandwith (last min.)"
+$t1 = "Bandwith (last min)"; // "Bandwith (last min)"
 $t2 = "Connection information"; // "Connection information"
 $t3 = "Upload (Bytes/s)"; // "Upload (Bytes/s)"
 $t4 = "Download (Bytes/s)"; // "Download (Bytes/s)"
