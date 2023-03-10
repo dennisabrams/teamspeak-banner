@@ -98,10 +98,10 @@ if ($connected) {
 	imagettftext($banner, $text_normal, 0, $w*2, $h*50, $color2, $font, $t2);
 	imagettftext($banner, $text_small, 0, $w*2, $h*60, $color2, $font, $t5 .": " .$client);
 	if ($connected_hours >= 1) {
-		imagettftext($banner, $text_small, 0, $w*2, $h*66, $color2, $font, $t6 .": " .$connected_hours." h, " .$connected_min ." min.");
+		imagettftext($banner, $text_small, 0, $w*2, $h*66, $color2, $font, $t6 .": " .$connected_hours." h " .$connected_min ." min");
 	}
 	else {
-		imagettftext($banner, $text_small, 0, $w*2, $h*66, $color2, $font, $t6 .": " .$connected_min ." min.");
+		imagettftext($banner, $text_small, 0, $w*2, $h*66, $color2, $font, $t6 .": " .$connected_min ." min");
 	}
 	imagettftext($banner, $text_small, 0, $w*2, $h*72, $color2, $font, $t7 .": " .$total_connections);
 	$flag = imagescale($flag, 90, 60, IMG_BICUBIC);
