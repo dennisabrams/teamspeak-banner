@@ -75,7 +75,7 @@ imagefilledrectangle($banner, $w*78, $h*50.8, $w*96, $h*50, $color1);
 imagefilledrectangle($banner, $w*0, $h*87.3, $w*100, $h*100, $color3);
 imagettftext($banner, $its, $itr, $w*$ipl, $h*$ipt, $color1, $font, $custom);
 imagettftext($banner, $text_time, 0, $w*80, $h*45, $color1, $font, date('H:i'));
-imagettftext($banner, $text_small, 0, $w*83.3, $h*60, $color1, $font, strftime("%x"));
+imagettftext($banner, $text_small, 0, $w*82.6, $h*60, $color1, $font, strftime("%x"));
 if (empty($logo)) {
 	$t_box = imagettfbbox($text_server, 0, $font, $server_name);
 	// Centered server name text
@@ -105,8 +105,8 @@ if ($connected) {
 	}
 	imagettftext($banner, $text_small, 0, $w*2, $h*72, $color2, $font, $t7 .": " .$total_connections);
 	$flag = imagescale($flag, 90, 60, IMG_BICUBIC);
-	imagefilledellipse($banner, $w*87.7, $h*74.6, 165, 165, $color3);
-	imagecopymerge($banner, $flag, $w*86.2, $h*72, 0, 0, 90, 60 , 100);
+	imagefilledellipse($banner, $w*87, $h*74.6, 165, 165, $color3);
+	imagecopymerge($banner, $flag, $w*85.5, $h*72, 0, 0, 90, 60 , 100);
 	if (!empty($groups)) {
 		imagettftext($banner, $text_small, 0, $w*2, $h*78, $color2, $font, $t8 .": ");
 		for ($i = 0, $x_groups = $w*$gpl; $i < $max_groups; $i++, $x_groups += 65) {
