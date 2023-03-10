@@ -43,7 +43,7 @@
 
 ## Introduction
 
-![ts3](https://user-images.githubusercontent.com/122950707/217850954-a10cedcd-ea12-46da-8eb3-12602d8991e0.png)
+![p11_banner](https://user-images.githubusercontent.com/122950707/224430742-36806f09-6181-44d4-95d7-147288f5eae4.png)
 
 There are some great TeamSpeak 3 Banner Generators on GitHub, however I didn't find one with much information about the client & server side and the ability to customize the banner with an extern config file. 
 
@@ -145,7 +145,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
 
 ## Configuration
 
-![ts3-demo](https://user-images.githubusercontent.com/122950707/218219605-79f7879d-a48a-4e16-a41a-88ef030009cb.png)
+![github_banner](https://user-images.githubusercontent.com/122950707/224430899-411df284-b18a-4d13-bd12-df1de7d2c131.png)
 
 The TeamSpeak 3 Banner will look similar to this if there are no changes inside the [`config.php`](https://github.com/dennisabrams/teamspeak3-banner/blob/main/config.php) file.
 * Logo Image & Custom text can be added.
