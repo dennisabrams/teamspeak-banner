@@ -13,7 +13,7 @@ $ts3_libary = "../vendor/planetteamspeak/ts3-php-framework/libraries/TeamSpeak3/
 
 // Serverquery connection
 $serverquery_username = "serveradmin"; // Default serverquery_username: "serveradmin"
-$serverquery_password = ""; // Password
+$serverquery_password = "PASSWORD"; // Password
 $server_ip = "127.0.0.1"; // Set to "127.0.0.1" if the webserver and TS3 server are hosted on the same server (localhost)
 $serverquery_port = "10011"; // Default serverquery_port: "10011"
 $server_port = "9987"; // Default server_port: "9987"
