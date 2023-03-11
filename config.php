@@ -24,6 +24,7 @@ $ts3_bots = 0; // Amount of Bots on the TS3 server
 // Locale information
 date_default_timezone_set("Europe/Berlin"); // Locale date information
 setlocale(LC_ALL, "de_DE.utf8"); // Locale date spelling
+$date_type = 1; // 0 = Numeric representation (01.01.2023), 1 = Textual representation (01 January 2023)
 
 // Background image
 $background = "images/background.png"; // Background image path (3:1 aspect ratio)
