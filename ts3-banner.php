@@ -59,6 +59,7 @@ $server_uptime = substr($server_uptime, 0, -3);
 $server_uptime = str_replace(":", "h ", $server_uptime) ."min";
 $server_group = array_map('intval', explode(',', $server_group));
 $load = sys_getloadavg();
+$date = ($date_type == 1) ? strftime("%d %B %Y") : strftime("%x");
 
 // Image generation
 $banner = imagecreatefromstring(file_get_contents($background));
@@ -74,11 +75,14 @@ $flag = imagecreatefrompng("flags/" .$country .".png");
 imagefilledrectangle($banner, $w*78, $h*50.8, $w*96, $h*50, $color1);
 imagefilledrectangle($banner, $w*0, $h*87.3, $w*100, $h*100, $color3);
 imagettftext($banner, $its, $itr, $w*$ipl, $h*$ipt, $color1, $font, $custom);
-imagettftext($banner, $text_time, 0, $w*80, $h*45, $color1, $font, date('H:i'));
-imagettftext($banner, $text_small, 0, $w*82.6, $h*60, $color1, $font, strftime("%x"));
+$t_box = imagettfbbox($text_time, 0, $font, date("H:i"));
+imagettftext($banner, $text_time, 0, ($width / 4 - (abs($t_box[2]) - abs($t_box[0]))) / 2 + $w*74.5, ($height - (abs($t_box[5]) - abs($t_box[3]))) / 1.9, $color1, $font,  date("H:i"));
+$t_box = imagettfbbox($text_small, 0, $font, $date);
+imagettftext($banner, $text_small, 0, ($width / 4 - (abs($t_box[2]) - abs($t_box[0]))) / 2 + $w*74.5, ($height - (abs($t_box[5]) - abs($t_box[3]))) / 1.67, $color1, $font,  $date);
+$t_box = imagettfbbox($text_small, 0, $font, strftime("%A"));
+imagettftext($banner, $text_small, 0, ($width / 4 - (abs($t_box[2]) - abs($t_box[0]))) / 2 + $w*74.5, ($height - (abs($t_box[5]) - abs($t_box[3]))) / 1.54, $color1, $font, strftime("%A"));
 if (empty($logo)) {
 	$t_box = imagettfbbox($text_server, 0, $font, $server_name);
-	// Centered server name text
 	imagettftext($banner, $text_server, 0, ($width - (abs($t_box[2]) - abs($t_box[0]))) / 2, ($height - (abs($t_box[5]) - abs($t_box[3]))) / 1.75, $color1, $font, $server_name);
 }
 else {
@@ -105,8 +109,8 @@ if ($connected) {
 	}
 	imagettftext($banner, $text_small, 0, $w*2, $h*72, $color2, $font, $t7 .": " .$total_connections);
 	$flag = imagescale($flag, 90, 60, IMG_BICUBIC);
-	imagefilledellipse($banner, $w*87, $h*74.6, 165, 165, $color3);
-	imagecopymerge($banner, $flag, $w*85.5, $h*72, 0, 0, 90, 60 , 100);
+	imagefilledellipse($banner, $w*87, $h*75.6, 165, 165, $color3);
+	imagecopymerge($banner, $flag, $w*85.5, $h*73, 0, 0, 90, 60 , 100);
 	if (!empty($groups)) {
 		imagettftext($banner, $text_small, 0, $w*2, $h*78, $color2, $font, $t8 .": ");
 		for ($i = 0, $x_groups = $w*$gpl; $i < $max_groups; $i++, $x_groups += 65) {
