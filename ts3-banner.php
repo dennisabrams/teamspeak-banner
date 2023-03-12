@@ -27,12 +27,19 @@ try {
 	$total_clients = $ts3->virtualserver_clientsonline - $ts3->virtualserver_queryclientsonline - $ts3_bots;
 	$max_clients = $ts3->virtualserver_maxclients;
 
+	// Get client IP
+	$ip = isset($_SERVER['HTTP_CLIENT_IP'])
+	? $_SERVER['HTTP_CLIENT_IP']
+	: (isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+		? $_SERVER['HTTP_X_FORWARDED_FOR']
+		: $_SERVER['REMOTE_ADDR']);
+	
 	// Get client Info
 	foreach ($ts3->clientList() as $cl) {
 
 		if ($cl->client_type) continue;
 		// Comparing IP's if client is connected to the TS3 server
-		if ($cl->getProperty('connection_client_ip') == $_SERVER['REMOTE_ADDR']) {
+		if ($cl->getProperty('connection_client_ip') == $ip) {
 			$client = $cl->client_nickname;
 			// Convert ms in min and add 1 extra min because TS3 shows the image only after the GTX interval is over
 			$connected_time = (round(($cl->connection_connected_time) / 60000) + 1);
