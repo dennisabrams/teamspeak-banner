@@ -103,7 +103,7 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
 
 ### Installation
 
-1. Create a new folder `ts3-banner` inside of the root folder of your web server and clone the repo inside of it. Default path: `var/www/html`.
+1. Create a new folder `ts3-banner` inside the root folder of your web server and clone the repo inside of it. Default path: `var/www/html`.
 
    ```sh
    git clone https://github.com/dennisabrams/teamspeak3-banner.git ts3-banner
