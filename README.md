@@ -8,7 +8,7 @@
   </a>
   <h3 align="center">TeamSpeak 3 Banner</h3>
   <p align="center">
-    A fully customisable TeamSpeak 3 🔊 banner with server & client information.
+    Fully customisable and responsive TeamSpeak 3 🔊 banner with server & client informations.
     <br />
     <br />
     <a href="#demo">View Demo</a>
