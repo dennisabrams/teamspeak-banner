@@ -55,7 +55,7 @@ try {
 			$upload = $cl->connection_bandwidth_sent_last_minute_total;
 			$download = $cl->connection_bandwidth_received_last_minute_total;
 			$country = strtolower($cl->client_country);
-			$server_group = $admin[$i];
+			$server_group = array_map('intval', explode(',', $cl->client_servergroups);
 			$connected = TRUE;
 		}
 		$i++;
