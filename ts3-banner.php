@@ -150,7 +150,7 @@ if ($connected) {
 					array_splice($server_group, $i, 1);
 				}
 			}
-			$group = imagecreatefrompng('server_groups/icons/'.$server_group[$i].'.png');
+			$group = imagecreatefrompng('server_groups/'.$server_group[$i].'.png');
 			$group = imagescale($group, 60, 60, IMG_BICUBIC);
 			imagecopy($banner,$group, $x_groups, $h*73.5, 0, 0, 60, 60);
 		}
