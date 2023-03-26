@@ -43,7 +43,7 @@
 
 ## Introduction
 
-![p11_banner](https://user-images.githubusercontent.com/122950707/224430742-36806f09-6181-44d4-95d7-147288f5eae4.png)
+![teamspeak-banner](https://user-images.githubusercontent.com/122950707/227748547-fd59aa07-4143-456b-872a-d5cf56ed578b.gif)
 
 There are some great TeamSpeak 3 Banner Generators on GitHub, however I didn't find one with much information about the client & server side and the ability to customize the banner with an extern config file. 
 
