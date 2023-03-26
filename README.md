@@ -145,9 +145,10 @@ The whole project was made with PHP & TS3 PHP Framework. The program connects to
 
 ## Configuration
 
-![github_banner](https://user-images.githubusercontent.com/122950707/224430899-411df284-b18a-4d13-bd12-df1de7d2c131.png)
+<img src="https://user-images.githubusercontent.com/122950707/224430899-411df284-b18a-4d13-bd12-df1de7d2c131.png" alt="Zoom" width="100%">
 
 The TeamSpeak 3 Banner will look similar to this if there are no changes inside the [`config.php`](https://github.com/dennisabrams/teamspeak3-banner/blob/main/config.php) file.
+<img align="right" src="https://user-images.githubusercontent.com/122950707/227749751-f526a37a-5dbb-4fbc-827d-a8d86de0bc9b.png" alt="Zoom" width="28%">
 * Logo Image & Custom text can be added.
 * If you don't have any logo, the name of your server will be shown instead.
 * Changing the font style, size, rotation & color of the text is possible.
