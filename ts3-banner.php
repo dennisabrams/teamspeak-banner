@@ -37,6 +37,7 @@ try {
 	$connected = FALSE;
 	$admin_count = 0;
 	$i = 0;
+	$admin = array();
 	foreach ($ts3->clientList() as $cl) {
 		if ($cl->client_type) continue;
 		$last_time[] = $cl->connection_connected_time;
